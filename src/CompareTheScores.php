@@ -30,6 +30,7 @@ class CompareTheScores
             if ($studentA[$key] < $studentB[$key])
             {
                 $scoresA[$key] = 0;
+                
                 $scoresB[$key] = 1;
                 continue;
             }
