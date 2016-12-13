@@ -12,38 +12,41 @@ class CompareTheScores
     {
         $scoresA = array();
         $scoresB = array();
-        for($i=0;$i < count($studentA) ;$i++)
-        {
-            if ($studentA[$i] == $studentB[$i])
+        foreach ($studentA as $key => $score) {
+            if ($studentA[$key] == $studentB[$key])
             {
-                $scoresA[$i] = 0;
-                $scoresB[$i] = 0;
+                $scoresA[$key] = 0;
+                $scoresB[$key] = 0;
                 continue;
             }
 
-            if ($studentA[$i] > $studentB[$i])
+            if ($studentA[$key] > $studentB[$key])
             {
-                $scoresA[$i] = 1;
-                $scoresB[$i] = 0;
+                $scoresA[$key] = 1;
+                $scoresB[$key] = 0;
                 continue;
             }
 
-            if ($studentA[$i] < $studentB[$i])
+            if ($studentA[$key] < $studentB[$key])
             {
-                $scoresA[$i] = 0;
-                $scoresB[$i] = 1;
+                $scoresA[$key] = 0;
+                $scoresB[$key] = 1;
                 continue;
             }
-        }
+        }              
+       $this->disp($scoresA,$scoresB);
+    }
 
+    public function disp($scoresA,$scoresB)
+    {
         echo "Student A scores: ";
-        for($i=0;$i<count($scoresA);$i++)
-            echo "$scoresA[$i] ";
+        foreach ($scoresA as $score)
+            echo "$score ";
         echo  " = ",array_sum($scoresA);
 
         echo "\nStudent B scores: ";
-        for($i=0;$i<count($scoresB);$i++)
-            echo "$scoresB[$i] ";
+        foreach ($scoresB as $score)
+            echo "$score ";
         echo " = ",array_sum($scoresB),"\n";
     }
 }
